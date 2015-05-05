@@ -1,0 +1,39 @@
+<%= form_for(@advertise) do |f| %>
+  <% if @advertise.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@advertise.errors.count, "error") %> prohibited this advertise from being saved:</h2>
+        
+      <ul>
+      <% @advertise.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+    <%= f.file_field :avatar %>
+  <div class="field">
+    <%= f.label :body %><br>
+    <%= f.text_area :body %>
+  </div>
+ 
+ <div class="field">
+    <%= f.label :rooms %><br>
+<%= select_tag(:rooms, options_for_select([['1', 1], ['2', 2], ['3', 3], ['4', 4] , ['5', 5], ['6', 6]], 2)) %>
+
+
+  </div>
+
+<div class="field">
+    <%= f.label :city %><br>
+<%= select_tag(:rooms, options_for_select([['alex', 1], ['cairo', 2], ['aswan', 3], ['menofaya', 4] , ['asyot', 5], ['loxor', 6]], 2)) %>
+</div>
+
+
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+
+
+<% end %>
+
